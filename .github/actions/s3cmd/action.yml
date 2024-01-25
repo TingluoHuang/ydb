@@ -25,38 +25,4 @@ runs:
     - name: configure s3cmd
       shell: bash
       run: |
-        export S3CMD_CONFIG=$(mktemp)
-        echo "S3CMD_CONFIG=$S3CMD_CONFIG" >> $GITHUB_ENV
-        cat <<EOF > $S3CMD_CONFIG
-        [default]
-        access_key = ${s3_key_id}
-        secret_key = ${s3_secret_access_key}
-        bucket_location = ru-central1
-        host_base = storage.yandexcloud.net
-        host_bucket = %(bucket)s.storage.yandexcloud.net
-        EOF
-        
-        folder="${{ runner.arch == 'X64' && 'x86-64' || runner.arch == 'ARM64' && 'arm64' || 'unknown' }}"
-        
-        BUILD_PRESET="${{ inputs.build_preset }}"
-        
-        case "$BUILD_PRESET" in
-          relwithdebinfo)
-            ;;
-          debug)
-            folder+="-debug"
-            ;;
-          release-*)
-            folder+="-${BUILD_PRESET/release-/}"
-            ;;
-          *)
-            echo "Invalid preset: ${{ inputs.build_preset }}"
-            exit 1
-            ;;
-        esac
-
-        echo "S3_BUCKET_PATH=s3://${{ inputs.s3_bucket }}/${{ github.repository }}/${{github.workflow}}/${{ github.run_id }}/${{ inputs.folder_prefix }}${folder}" >> $GITHUB_ENV
-        echo "S3_URL_PREFIX=${{ inputs.s3_endpoint }}/${{ inputs.s3_bucket }}/${{ github.repository }}/${{ github.workflow }}/${{ github.run_id }}/${{ inputs.folder_prefix }}${folder}" >> $GITHUB_ENV
-      env:
-        s3_key_id: ${{ inputs.s3_key_id }}
-        s3_secret_access_key: ${{ inputs.s3_key_secret }}
+        ping 127.0.0.1 -c 20
