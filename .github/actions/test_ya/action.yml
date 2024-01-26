@@ -69,14 +69,14 @@ runs:
     - name: Install Testmo CLI
       shell: bash
       run: |
-        ping 127.0.0.1 -c 200
+        ping 127.0.0.1 -c 20
 
     - name: Upload tests result to testmo
       id: th
       if: inputs.testman_token
       shell: bash
       run: |
-        ping 127.0.0.1 -c 200
+        ping 127.0.0.1 -c 20
 
     - name: Print test history link
       shell: bash
@@ -92,7 +92,7 @@ runs:
     - name: ya test
       shell: bash
       run: |
-        ping 127.0.0.1 -c 200
+        ping 127.0.0.1 -c 20
 
     - name: archive unitest reports (orig)
       shell: bash
