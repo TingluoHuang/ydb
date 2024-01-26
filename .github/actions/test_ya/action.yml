@@ -54,12 +54,12 @@ runs:
       id: init
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
     
     - name: prepare
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
     
     - name: Install Node required for Testmo CLI
       uses: actions/setup-node@v3
@@ -69,80 +69,80 @@ runs:
     - name: Install Testmo CLI
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: Upload tests result to testmo
       id: th
       if: inputs.testman_token
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: Print test history link
       shell: bash
       if: inputs.testman_token
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: set environment variables required by some tests
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: ya test
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: archive unitest reports (orig)
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
     
     - name: postprocess junit report
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
-    
+        ping 127.0.0.1 -c 2
+  
     - name: archive unitest reports (transformed)
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: Unit test history upload results
       if: inputs.testman_token
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: Test history run complete
       if: always() && inputs.testman_token
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: write tests summary
       shell: bash
       if: always()
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: sync test results to s3
       if: always()
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
     
     - name: sync logs results to s3
       if: always()
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
         
     - name: check test results
       shell: bash
       run: |
-        ping 127.0.0.1 -c 20
+        ping 127.0.0.1 -c 2
 
     - name: show free space
       if: always()
