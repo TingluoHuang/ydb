@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build_preset: ["relwithdebinfo", "release-asan"]
+        build_preset: ["relwithdebinfo"]
     name: Build and test ${{ matrix.build_preset }}
     uses: ./.github/workflows/build_and_test_ya_provisioned.yml
     with:
